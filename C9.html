@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Look-and-say</title>
+  <meta name="description" content="Look-and-say sequence algorithm">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        function lookAndSay() {
+            var temp="",result="1";
+            var n = document.getElementById("n").value;
+
+            if (n==1){
+                return alert("1");
+            }
+
+            for (var i=1 ; i<n ; i++){
+                temp = result;
+                result = "";
+                var caunt=1,number=temp.charAt(0);
+                for (var a=1 ; a<temp.length ; a++){
+                    if (temp.charAt(a)==number)
+                        caunt++;
+                    else {
+                        result += caunt + number;
+                        caunt = 1;
+                        number = temp.charAt(a);
+                    }
+                }
+                result += caunt + number;
+            }
+
+            return alert(result);
+            
+        };
+    </script>
+    <div id="main">
+        <form>
+        Koki sekos skaiciu noretum pamatyti? :<br>
+        <input type="number" id="n" value="1"><br>
+        <button onclick="lookAndSay()">Pagnali</button>
+        </form>
+    </div>
+</body>
+</html>
